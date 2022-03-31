@@ -1,0 +1,14 @@
+.display {
+    display: flex;
+    justify-content: center;
+}
+
+.operator-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.number-buttons {
+    display: flex;
+    justify-content: center;
+}
