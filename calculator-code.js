@@ -26,4 +26,10 @@ function power(number) {
 }
 
 //Step 2 - Operate
-// function operate
+function operate(operator, a, b) {
+    if (operator == '+') return add(a,b)
+    if (operator == '-') return subtract(a,b)
+    if (operator == '*') return multiply(a,b)
+    if (operator == '/') return divide(a,b)
+    if (operator == 'square') return power(a,b)
+}
