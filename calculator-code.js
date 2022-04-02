@@ -1,6 +1,9 @@
 const numbers = [...Array(10).keys()];
 //Array() - Creates an array to the 'argument' length, in this case '10'
 // .keys() - Returns an array of an object in the same order a normal loop would 
+const numSelection = document.querySelectorAll('[data-selection]')
+//Enables to select the button as a data input
+//numSelection to be used as an event listener to store data for each operator and number
 
 //Step 1 - Basic Operations
 function add(intOne, intTwo) {
