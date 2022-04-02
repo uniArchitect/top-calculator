@@ -2,7 +2,17 @@
     position:absolute;
     top: 0; bottom: 0; left: 0; right: 0;
     margin: auto;
-    height: 60px;
+    height: auto;
+}
+
+.calculator-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 300px;
+    padding: 100px;
+    padding-left: 250px;
+    padding-right: 250px;
 }
 
 .display {
@@ -26,6 +36,17 @@
 }
 
 .bottom-row {
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bottom-right {
     display: flex;
     justify-content: center;
 }
