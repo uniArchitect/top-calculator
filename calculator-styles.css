@@ -10,12 +10,22 @@
     justify-content: center;
 }
 
-.operator-buttons {
+.first-row {
     display: flex;
     justify-content: center;
 }
 
-.number-buttons {
+.second-row {
+    display: flex;
+    justify-content: center;
+}
+
+.third-row {
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-row {
     display: flex;
     justify-content: center;
 }
