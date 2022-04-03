@@ -2,8 +2,9 @@ const numbers = [...Array(10).keys()];
 //Array() - Creates an array to the 'argument' length, in this case '10'
 // .keys() - Returns an array of an object in the same order a normal loop would 
 const numSelection = document.querySelectorAll('[data-selection]')
-//Enables to select the button as a data input
+//Gives data-selection property a connection to JS
 //numSelection to be used as an event listener to store data for each operator and number
+const display_span = document.getElementById('display')
 
 //Step 1 - Basic Operations
 function add(intOne, intTwo) {
@@ -41,9 +42,21 @@ function operate(operator, a, b) {
 }
 
 //Step 3 - Input
+
+//Displays a value for each element pressed on screen
 numSelection.forEach(numSelection => {
     numSelection.addEventListener('click', () => {
-        const calcInput = numSelection.dataset.selection;
-        console.log(calcInput);
+        let calcInput = numSelection.dataset.selection;
+        addDisplay(calcInput);
+        display_span.innerHTML = calcDisplay;
     })
 })
+
+//Define display_span as an empty array
+let calcDisplay = [];
+function addDisplay(calcInput) {
+    calcDisplay.push(calcInput); //Defines calcDisplay as an expanding array
+    console.log(calcDisplay);
+}
+
+
