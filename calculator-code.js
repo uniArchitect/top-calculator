@@ -42,21 +42,22 @@ function operate(operator, a, b) {
 }
 
 //Step 3 - Input
+//Define display_span as an empty array
+let calcDisplay = [];
+//Adds calcInput into empty array
+function addDisplay(calcInput) {
+    calcDisplay.push(calcInput); //Defines calcDisplay as an expanding array
+    let joinDisplay = calcDisplay.join("");
+    console.log(joinDisplay); //Purpose is to display in console
+    return joinDisplay;
+}
 
 //Displays a value for each element pressed on screen
 numSelection.forEach(numSelection => {
     numSelection.addEventListener('click', () => {
         let calcInput = numSelection.dataset.selection;
-        addDisplay(calcInput);
-        display_span.innerHTML = calcDisplay;
+        display_span.innerHTML = addDisplay(calcInput);
     })
 })
-
-//Define display_span as an empty array
-let calcDisplay = [];
-function addDisplay(calcInput) {
-    calcDisplay.push(calcInput); //Defines calcDisplay as an expanding array
-    console.log(calcDisplay);
-}
 
 
