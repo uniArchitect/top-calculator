@@ -41,3 +41,9 @@ function operate(operator, a, b) {
 }
 
 //Step 3 - Input
+numSelection.forEach(numSelection => {
+    numSelection.addEventListener('click', () => {
+        const calcInput = numSelection.dataset.selection;
+        console.log(calcInput);
+    })
+})
