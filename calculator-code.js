@@ -42,26 +42,42 @@ function operate(operator, a, b) {
 }
 
 //Step 3 - Input
-//Define display_span as an empty array
-let calcDisplay = [];
-//Adds calcInput into empty array
-function addDisplay(calcInput) {
-    calcDisplay.push(calcInput); //Defines calcDisplay as an expanding array
-    let joinDisplay = calcDisplay.join("");
+//Define display_span as an empty array - firstEntry
+let firstEntry = [];
+//Adds calcInput into empty array - secondEntry
+function firstDisplay(calcInput) {
+    firstEntry.push(calcInput); //Defines firstDisplay as an expanding array
+    let joinDisplay = firstEntry.join("");
     console.log(joinDisplay); //Purpose is to display in console
     return joinDisplay;
 }
+
+//Define display_span as an empty array - secondEntry
+let secondEntry = [];
+//Adds calcInput into empty array - secondEntry
+// function secondDisplay(calcInput) {
+//     secondEntry.push(calcInput);
+//     let joinDisplay = secondEntry.join("");
+//     console.log(joinDisplay);
+//     return joinDisplay;
+// }
 
 //Displays a value for each element pressed on screen
 numSelection.forEach(numSelection => {
     numSelection.addEventListener('click', () => {
         let calcInput = numSelection.dataset.selection;
-        display_span.innerHTML = addDisplay(calcInput);
+        display_span.innerHTML = firstDisplay(calcInput);
+        let firstEntry = display_span.innerHTML;
+        //Create if statements to divide whether integers or operators are input
+        if (Number.isInteger(firstEntry) == true) {
+            // let calculation = firstEntry;
+            // return true;
+        }
     })
 })
 
 //Calculation Object
-let calculation = {};
-calculation.a = calcDisplay;
-//calculation.b -> needs a new variable after operator is input
-//calculation.operator -> operator variable input
+let calcEntry = {};
+calcEntry.a = firstEntry;
+// calcEntry.b -> needs a new variable after operator is input
+// calcEntry.operator -> operator variable input
