@@ -47,15 +47,20 @@ let calcDisplay = [];
 // let secondEntry = [];
 // Adds calcInput into empty array
 function entryDisplay(calcInput) {    
-    if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
-        calcDisplay.push(calcInput); //Defines display as an expanding array
-        let joinDisplay = calcDisplay.join("");
-        console.log(joinDisplay); //Purpose is to display in console
-        return joinDisplay;
-    } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
-        return "operator";
-    } else if (calcInput == "=") {
-        return "equals";
+    while (calcEntry.operator == "undefined") {
+        if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
+            calcDisplay.push(calcInput); //Defines display as an expanding array
+            let joinDisplay = calcDisplay.join("");
+            console.log(joinDisplay); //Purpose is to display in console
+            return joinDisplay;
+        } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
+            calcEntry.operator = calcInput;
+            display_span.innerHTML = "";
+            return true;
+        } else if (calcInput == "=") {
+            // operate();
+            return "Final Calculation";
+        }
     }
 }
 
@@ -74,4 +79,4 @@ numSelection.forEach(numSelection => {
 let calcEntry = {};
 calcEntry.a = calcDisplay;
 // calcEntry.b -> needs a new variable after operator is input
-// calcEntry.operator -> operator variable input
+// calcEntry.operator 
