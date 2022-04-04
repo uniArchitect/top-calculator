@@ -41,42 +41,34 @@ function operate(operator, a, b) {
     if (operator == 'square') return power(a,b)
 }
 
-//Step 3 - Input
-//Define display_span as an empty array - firstEntry
+// Step 3 - Input
+// Define display_span as an empty array
 let firstEntry = [];
-//Adds calcInput into empty array - secondEntry
-function firstDisplay(calcInput) {
-    firstEntry.push(calcInput); //Defines firstDisplay as an expanding array
-    let joinDisplay = firstEntry.join("");
-    console.log(joinDisplay); //Purpose is to display in console
-    return joinDisplay;
+// let secondEntry = [];
+// Adds calcInput into empty array
+function firstDisplay(calcInput) {    
+    if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
+        firstEntry.push(calcInput); //Defines display as an expanding array
+        let joinDisplay = firstEntry.join("");
+        console.log(joinDisplay); //Purpose is to display in console
+        return joinDisplay;
+    } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square" || calcInput == "=") {
+        return "operator";
+    }
 }
 
-//Define display_span as an empty array - secondEntry
-let secondEntry = [];
-//Adds calcInput into empty array - secondEntry
-// function secondDisplay(calcInput) {
-//     secondEntry.push(calcInput);
-//     let joinDisplay = secondEntry.join("");
-//     console.log(joinDisplay);
-//     return joinDisplay;
-// }
+// Create a function to erase display of firstDisplay() and store operator
 
-//Displays a value for each element pressed on screen
+// Displays a value for each element pressed on screen
 numSelection.forEach(numSelection => {
     numSelection.addEventListener('click', () => {
         let calcInput = numSelection.dataset.selection;
         display_span.innerHTML = firstDisplay(calcInput);
-        let firstEntry = display_span.innerHTML;
         //Create if statements to divide whether integers or operators are input
-        if (Number.isInteger(firstEntry) == true) {
-            // let calculation = firstEntry;
-            // return true;
-        }
     })
 })
 
-//Calculation Object
+// Calculation Object
 let calcEntry = {};
 calcEntry.a = firstEntry;
 // calcEntry.b -> needs a new variable after operator is input
