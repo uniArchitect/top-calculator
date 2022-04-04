@@ -60,4 +60,8 @@ numSelection.forEach(numSelection => {
     })
 })
 
-
+//Calculation Object
+let calculation = {};
+calculation.a = calcDisplay;
+//calculation.b -> needs a new variable after operator is input
+//calculation.operator -> operator variable input
