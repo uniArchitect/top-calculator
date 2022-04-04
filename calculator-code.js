@@ -46,7 +46,7 @@ function operate(operator, a, b) {
 let calcDisplay = [];
 // let secondEntry = [];
 // Adds calcInput into empty array
-function firstDisplay(calcInput) {    
+function entryDisplay(calcInput) {    
     if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
         calcDisplay.push(calcInput); //Defines display as an expanding array
         let joinDisplay = calcDisplay.join("");
@@ -65,7 +65,7 @@ function firstDisplay(calcInput) {
 numSelection.forEach(numSelection => {
     numSelection.addEventListener('click', () => {
         let calcInput = numSelection.dataset.selection;
-        display_span.innerHTML = firstDisplay(calcInput);
+        display_span.innerHTML = entryDisplay(calcInput);
         //Create if statements to divide whether integers or operators are input
     })
 })
