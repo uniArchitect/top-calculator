@@ -43,13 +43,13 @@ function operate(operator, a, b) {
 
 // Step 3 - Input
 // Define display_span as an empty array
-let firstEntry = [];
+let calcDisplay = [];
 // let secondEntry = [];
 // Adds calcInput into empty array
 function firstDisplay(calcInput) {    
     if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
-        firstEntry.push(calcInput); //Defines display as an expanding array
-        let joinDisplay = firstEntry.join("");
+        calcDisplay.push(calcInput); //Defines display as an expanding array
+        let joinDisplay = calcDisplay.join("");
         console.log(joinDisplay); //Purpose is to display in console
         return joinDisplay;
     } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square" || calcInput == "=") {
@@ -70,6 +70,6 @@ numSelection.forEach(numSelection => {
 
 // Calculation Object
 let calcEntry = {};
-calcEntry.a = firstEntry;
+calcEntry.a = calcDisplay;
 // calcEntry.b -> needs a new variable after operator is input
 // calcEntry.operator -> operator variable input
