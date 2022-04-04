@@ -52,8 +52,10 @@ function firstDisplay(calcInput) {
         let joinDisplay = calcDisplay.join("");
         console.log(joinDisplay); //Purpose is to display in console
         return joinDisplay;
-    } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square" || calcInput == "=") {
+    } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
         return "operator";
+    } else if (calcInput == "=") {
+        return "equals";
     }
 }
 
