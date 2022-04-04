@@ -46,7 +46,8 @@ function operate(operator, a, b) {
 let calcDisplay = [];
 // let secondEntry = [];
 // Adds calcInput into empty array
-function entryDisplay(calcInput) {    
+function entryDisplay(calcInput) {   
+    // Create a second condition for the function to allow for a second entry, calcEntry.b , and erase the current display 
     while (calcEntry.operator == "undefined") {
         if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
             calcDisplay.push(calcInput); //Defines display as an expanding array
