@@ -1,7 +1,9 @@
 const numbers = [...Array(10).keys()];
 //Array() - Creates an array to the 'argument' length, in this case '10'
 // .keys() - Returns an array of an object in the same order a normal loop would 
-const numSelection = document.querySelectorAll('[data-selection]')
+const numSelection = document.querySelectorAll('[data-number]')
+const opSelection = document.querySelectorAll('[data-operate]')
+const clearSelection = document.querySelectorAll('[data-clear]')
 //Gives data-selection property a connection to JS
 //numSelection to be used as an event listener to store data for each operator and number
 const display_span = document.getElementById('display')
@@ -48,21 +50,21 @@ let calcDisplay = [];
 // Adds calcInput into empty array
 function entryDisplay(calcInput) {   
     // Create a second condition for the function to allow for a second entry, calcEntry.b , and erase the current display 
-    while (calcEntry.operator == "undefined") {
-        if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
-            calcDisplay.push(calcInput); //Defines display as an expanding array
-            let joinDisplay = calcDisplay.join("");
-            console.log(joinDisplay); //Purpose is to display in console
-            return joinDisplay;
-        } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
-            calcEntry.operator = calcInput;
-            display_span.innerHTML = "";
-            return true;
-        } else if (calcInput == "=") {
-            // operate();
-            return "Final Calculation";
-        }
+    // while (calcEntry.operator == "undefined" && Number.isInteger(calcInput) == "true") {    
+    if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
+        calcDisplay.push(calcInput); //Defines display as an expanding array
+        let joinDisplay = calcDisplay.join("");
+        console.log(joinDisplay); //Purpose is to display in console
+        return joinDisplay;
+    } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
+        calcEntry.operator = calcInput;
+        calcEntry.a = joinDisplay;
+        return "";
+    } else if (calcInput == "=") {
+        // operate();
+        return "Final Calculation";
     }
+    // }
 }
 
 // Create a function to erase display of firstDisplay() and store operator
