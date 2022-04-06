@@ -1,10 +1,35 @@
+class Calculator {
+    
+    // Clears the display
+    clear() {
+
+    }
+
+    // Adds numbers to the display one by one
+    appendNumber(number) {
+
+    }
+
+    chooseOperation(operation) {
+
+    }
+
+    // operate() {
+
+    // }
+
+    updateDisplay( {
+
+    })
+}
+
 const numbers = [...Array(10).keys()];
 //Array() - Creates an array to the 'argument' length, in this case '10'
 // .keys() - Returns an array of an object in the same order a normal loop would 
-const numSelection = document.querySelectorAll('[data-number]')
-const opSelection = document.querySelectorAll('[data-operate]')
-const clearSelection = document.querySelectorAll('[data-clear]')
-const equalSelection = document.querySelectorAll('[data-equals]')
+const numSelect_button = document.querySelectorAll('[data-number]')
+const opSelect_button = document.querySelectorAll('[data-operate]')
+const clearSelect_button = document.querySelectorAll('[data-clear]')
+const equalSelect_button = document.querySelectorAll('[data-equals]')
 //Gives data-selection property a connection to JS
 //numSelection to be used as an event listener to store data for each operator and number
 const display_span = document.getElementById('display')
@@ -68,14 +93,11 @@ function entryDisplay(calcInput) {
     // }
 }
 
-// Create a function to erase display of firstDisplay() and store operator
-
 // Displays a value for each element pressed on screen
-numSelection.forEach(numSelection => {
-    numSelection.addEventListener('click', () => {
-        let calcInput = numSelection.dataset.number;
+numSelect_button.forEach(numSelect_button => {
+    numSelect_button.addEventListener('click', () => {
+        let calcInput = numSelect_button.dataset.number;
         display_span.innerHTML = entryDisplay(calcInput);
-        //Create if statements to divide whether integers or operators are input
     })
 })
 
