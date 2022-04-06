@@ -4,6 +4,7 @@ const numbers = [...Array(10).keys()];
 const numSelection = document.querySelectorAll('[data-number]')
 const opSelection = document.querySelectorAll('[data-operate]')
 const clearSelection = document.querySelectorAll('[data-clear]')
+const equalSelection = document.querySelectorAll('[data-equals]')
 //Gives data-selection property a connection to JS
 //numSelection to be used as an event listener to store data for each operator and number
 const display_span = document.getElementById('display')
@@ -72,7 +73,7 @@ function entryDisplay(calcInput) {
 // Displays a value for each element pressed on screen
 numSelection.forEach(numSelection => {
     numSelection.addEventListener('click', () => {
-        let calcInput = numSelection.dataset.selection;
+        let calcInput = numSelection.dataset.number;
         display_span.innerHTML = entryDisplay(calcInput);
         //Create if statements to divide whether integers or operators are input
     })
