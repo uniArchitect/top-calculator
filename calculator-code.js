@@ -1,8 +1,13 @@
 class calculator {
-    
+    constructor(display_div) {
+        this.display = display_div;
+        this.clear();
+    }
+
     // Clears the display
     clear() {
-
+        this.display = "";
+        this.operation = undefined;
     }
 
     // Adds numbers to the display one by one
@@ -30,8 +35,6 @@ const numSelect_button = document.querySelectorAll('[data-number]')
 const opSelect_button = document.querySelectorAll('[data-operate]')
 const clearSelect_button = document.querySelector('[data-clear]')
 const equalSelect_button = document.querySelector('[data-equals]')
-//Gives data-selection property a connection to JS
-//numSelection to be used as an event listener to store data for each operator and number
 const display_div = document.querySelector('[data-display]')
 
 //Step 1 - Basic Operations
@@ -91,6 +94,8 @@ function entryDisplay(calcInput) {
     }
     // }
 }
+
+const calculator = new calculator(display_div)
 
 // Displays a value for each element pressed on screen
 numSelect_button.forEach(button => {
