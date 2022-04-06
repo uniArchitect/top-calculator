@@ -1,4 +1,4 @@
-class calculator {
+class Calculator {
     constructor(display_div) {
         this.display = display_div;
         this.clear();
@@ -12,7 +12,7 @@ class calculator {
 
     // Adds numbers to the display one by one
     appendNumber(number) {
-        this.display_div = this.display_div.toString() + number.toString();
+        this.display = number;
     }
 
     chooseOperation(operation) {
@@ -23,8 +23,9 @@ class calculator {
 
     // }
 
+    //Updates display with innerText of button clicked on screen
     updateDisplay() {
-        
+        this.display_div.innerText = this.display;
     }
 }
 
@@ -73,34 +74,32 @@ function operate(operator, a, b) {
 }
 
 // Step 3 - Input
-// Define display_span as an empty array
+// Define display_div as an empty array
 let calcDisplay = [];
-// let secondEntry = [];
 // Adds calcInput into empty array
-function entryDisplay(calcInput) {   
-    // Create a second condition for the function to allow for a second entry, calcEntry.b , and erase the current display 
-    // while (calcEntry.operator == "undefined" && Number.isInteger(calcInput) == "true") {    
-    if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
-        calcDisplay.push(calcInput); //Defines display as an expanding array
-        let joinDisplay = calcDisplay.join("");
-        console.log(joinDisplay); //Purpose is to display in console
-        return joinDisplay;
-    } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
-        calcEntry.operator = calcInput;
-        return "";
-    } else if (calcInput == "=") {
-        // operate();
-        return "Final Calculation";
-    }
-    // }
-}
+// function entryDisplay(calcInput) {    
+//     // while (calcEntry.operator == "undefined" && Number.isInteger(calcInput) == "true") {    
+//     if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
+//         calcDisplay.push(calcInput); //Defines display as an expanding array
+//         let joinDisplay = calcDisplay.join("");
+//         console.log(joinDisplay); //Purpose is to display in console
+//         return joinDisplay;
+//     } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
+//         calcEntry.operator = calcInput;
+//         return "";
+//     } else if (calcInput == "=") {
+//         // operate();
+//         return "Final Calculation";
+//     }
+//     // }
+// }
 
-const calculator = new calculator(display_div)
+const calculator = new Calculator(display_div)
 
 // Displays a value for each element pressed on screen
 numSelect_button.forEach(button => {
     button.addEventListener('click', () => {
-        calculator.appendNumber(button.innerText);
+        calculator.appendNumber(numSelect_button.innerText);
         calculator.updateDisplay();
         // let calcInput = numSelect_button.dataset.number;
         // display_div.innerHTML = entryDisplay(calcInput);
