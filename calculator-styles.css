@@ -15,7 +15,7 @@
     padding-right: 250px;
 }
 
-.display {
+.output {
     display: flex;
     justify-content: center;
 }

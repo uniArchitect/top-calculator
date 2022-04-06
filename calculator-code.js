@@ -1,4 +1,4 @@
-class Calculator {
+class calculator {
     
     // Clears the display
     clear() {
@@ -7,7 +7,7 @@ class Calculator {
 
     // Adds numbers to the display one by one
     appendNumber(number) {
-
+        this.display_div = this.display_div.toString() + number.toString();
     }
 
     chooseOperation(operation) {
@@ -18,21 +18,21 @@ class Calculator {
 
     // }
 
-    updateDisplay( {
-
-    })
+    updateDisplay() {
+        
+    }
 }
 
 const numbers = [...Array(10).keys()];
 //Array() - Creates an array to the 'argument' length, in this case '10'
-// .keys() - Returns an array of an object in the same order a normal loop would 
+//.keys() - Returns an array of an object in the same order a normal loop would 
 const numSelect_button = document.querySelectorAll('[data-number]')
 const opSelect_button = document.querySelectorAll('[data-operate]')
-const clearSelect_button = document.querySelectorAll('[data-clear]')
-const equalSelect_button = document.querySelectorAll('[data-equals]')
+const clearSelect_button = document.querySelector('[data-clear]')
+const equalSelect_button = document.querySelector('[data-equals]')
 //Gives data-selection property a connection to JS
 //numSelection to be used as an event listener to store data for each operator and number
-const display_span = document.getElementById('display')
+const display_div = document.querySelector('[data-display]')
 
 //Step 1 - Basic Operations
 function add(intOne, intTwo) {
@@ -84,7 +84,6 @@ function entryDisplay(calcInput) {
         return joinDisplay;
     } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
         calcEntry.operator = calcInput;
-        calcEntry.a = joinDisplay;
         return "";
     } else if (calcInput == "=") {
         // operate();
@@ -94,10 +93,12 @@ function entryDisplay(calcInput) {
 }
 
 // Displays a value for each element pressed on screen
-numSelect_button.forEach(numSelect_button => {
-    numSelect_button.addEventListener('click', () => {
-        let calcInput = numSelect_button.dataset.number;
-        display_span.innerHTML = entryDisplay(calcInput);
+numSelect_button.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+        // let calcInput = numSelect_button.dataset.number;
+        // display_div.innerHTML = entryDisplay(calcInput);
     })
 })
 
