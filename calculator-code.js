@@ -18,7 +18,9 @@ class Calculator {
     }
 
     chooseOperation(operation) {
-
+        this.operation = operation;
+        this.prevDisplay = this.display;
+        this.display = "";
     }
 
     // operate() {
@@ -77,7 +79,7 @@ function operate(operator, a, b) {
 
 // Step 3 - Input
 // Define display_div as an empty array
-let calcDisplay = [];
+// let calcDisplay = [];
 // Adds calcInput into empty array
 // function entryDisplay(calcInput) {    
 //     // while (calcEntry.operator == "undefined" && Number.isInteger(calcInput) == "true") {    
@@ -103,13 +105,18 @@ numSelect_button.forEach(numSelect_button => {
     numSelect_button.addEventListener('click', () => {
         calculator.appendNumber(numSelect_button.innerText);
         calculator.updateDisplay();
-        // let calcInput = numSelect_button.dataset.number;
-        // display_div.innerHTML = entryDisplay(calcInput);
+    })
+})
+
+opSelect_button.forEach(opSelect_button => {
+    opSelect_button.addEventListener('click', () => {
+        calculator.chooseOperation(opSelect_button.innerText);
+        calculator.updateDisplay();
     })
 })
 
 // Calculation Object
-let calcEntry = {};
-calcEntry.a = calcDisplay;
+// let calcEntry = {};
+// calcEntry.a = calcDisplay;
 // calcEntry.b -> needs a new variable after operator is input
 // calcEntry.operator 
