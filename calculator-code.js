@@ -1,6 +1,6 @@
 class Calculator {
     constructor(display_div) {
-        this.display = display_div;
+        this.display_div = display_div;
         this.clear();
     }
 
@@ -97,8 +97,8 @@ let calcDisplay = [];
 const calculator = new Calculator(display_div)
 
 // Displays a value for each element pressed on screen
-numSelect_button.forEach(button => {
-    button.addEventListener('click', () => {
+numSelect_button.forEach(numSelect_button => {
+    numSelect_button.addEventListener('click', () => {
         calculator.appendNumber(numSelect_button.innerText);
         calculator.updateDisplay();
         // let calcInput = numSelect_button.dataset.number;
