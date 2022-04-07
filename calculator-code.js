@@ -20,13 +20,15 @@ class Calculator {
 
     chooseOperation(operation) {
         this.operation = operation;
-        this.prevDisplay = this.display;
+        this.firstEntry = this.display;
         this.display = "";
     }
 
-    // operate() {
-
-    // }
+    operate() {
+        this.secondEntry = this.display;
+        this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
+        this.display = this.result;
+    }
 
     //Updates display with innerText of button clicked on screen
     updateDisplay() {
@@ -65,19 +67,19 @@ function divide(dividend, divisor) {
     return quotient;
 }
 
-function power(number) {
-    let product = number * number;
-    return product;
-}
+// function power(number) {
+//     let product = number * number;
+//     return product;
+// }
 
 //Step 2 - Operate
-function operate(operator, a, b) {
-    if (operator == '+') return add(a,b)
-    if (operator == '-') return subtract(a,b)
-    if (operator == '*') return multiply(a,b)
-    if (operator == '/') return divide(a,b)
-    if (operator == 'square') return power(a,b)
-}
+// function operate(operator, a, b) {
+//     if (operator == '+') return add(a,b)
+//     if (operator == '-') return subtract(a,b)
+//     if (operator == '*') return multiply(a,b)
+//     if (operator == '/') return divide(a,b)
+//     if (operator == 'square') return power(a,b)
+// }
 
 // Step 3 - Input
 // Define display_div as an empty array
@@ -115,6 +117,11 @@ opSelect_button.forEach(opSelect_button => {
         calculator.chooseOperation(opSelect_button.innerText);
         calculator.updateDisplay();
     })
+})
+
+equalSelect_button.addEventListener('click', () => {
+    calculator.operate();
+    calculator.updateDisplay();
 })
 
 // Calculation Object
