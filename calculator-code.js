@@ -13,6 +13,7 @@ class Calculator {
     // Adds numbers to the display one by one
     appendNumber(number) {
         // "add" the two elements together so that the numbers can aggregate on screen instead of actually summed up
+        if (number === '.' && this.display.includes('.')) return
         this.display = this.display.toString() + number.toString();
     }
 
