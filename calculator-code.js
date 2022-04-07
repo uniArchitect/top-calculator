@@ -1,4 +1,5 @@
 class Calculator {
+    // Class will create a "calculator" object that can hold multiple properties
     constructor(display_div) {
         this.display_div = display_div;
         this.clear();
@@ -33,12 +34,13 @@ class Calculator {
     }
 }
 
-const numbers = [...Array(10).keys()];
+// const numbers = [...Array(10).keys()];
 //Array() - Creates an array to the 'argument' length, in this case '10'
 //.keys() - Returns an array of an object in the same order a normal loop would 
 const numSelect_button = document.querySelectorAll('[data-number]')
 const opSelect_button = document.querySelectorAll('[data-operate]')
 const clearSelect_button = document.querySelector('[data-clear]')
+const deleteSelect_button = document.querySelector('[data-delete]')
 const equalSelect_button = document.querySelector('[data-equals]')
 const display_div = document.querySelector('[data-display]')
 
