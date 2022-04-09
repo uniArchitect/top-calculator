@@ -37,14 +37,15 @@ class Calculator {
             this.firstEntry = this.display;
             this.display = "";
         } else if (typeof(this.firstEntry) == "string") {
-            let operation = this.operation;
-            // let firstEntry = this.firstEntry;
-            this.secondEntry = this.display;
-            // let secondEntry = this.firstEntry;
-            if (operation === '+') return this.add();
-            if (operation === '-') return this.subtract();
-            if (operation === '*') return this.multiply();
-            if (operation === '/') return this.divide();
+            // if (operation === '+') {
+            //     this.add();
+            //     this.display = "";
+            // }
+            // if (operation === '-') return this.subtract();
+            // if (operation === '*') return this.multiply();
+            // if (operation === '/') return this.divide();
+            // this.operation = operation;
+            // this.secondEntry = this.display;
         } 
     }
 
@@ -68,15 +69,12 @@ class Calculator {
         this.display = this.result;
     }
     
-    operate(operation, firstEntry, secondEntry) {
-        firstEntry = this.firstEntry;
+    operate() {
         this.secondEntry = this.display;
-        secondEntry = this.firstEntry;
-        operation = this.operation;
-        if (operation === '+') return this.add();
-        if (operation === '-') return this.subtract();
-        if (operation === '*') return this.multiply();
-        if (operation === '/') return this.divide();
+        if (this.operation === '+') return this.add();
+        if (this.operation === '-') return this.subtract();
+        if (this.operation === '*') return this.multiply();
+        if (this.operation === '/') return this.divide();
     }
 
     //Updates display with innerText of button clicked on screen
