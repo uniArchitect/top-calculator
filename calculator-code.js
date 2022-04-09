@@ -8,6 +8,8 @@ class Calculator {
     // Clears the display
     clear() {
         this.display = "";
+        this.firstEntry = "";
+        this.secondEntry = "";
         this.operation = undefined;
     }
 
@@ -29,10 +31,21 @@ class Calculator {
     }
 
     chooseOperation(operation) {
-        this.operation = operation;
         // Saves entry of this.display into this.firstEntry to be used later
-        this.firstEntry = this.display;
-        this.display = "";
+        if (this.firstEntry == "") {
+            this.operation = operation;
+            this.firstEntry = this.display;
+            this.display = "";
+        } else if (typeof(this.firstEntry) == "string") {
+            let operation = this.operation;
+            // let firstEntry = this.firstEntry;
+            this.secondEntry = this.display;
+            // let secondEntry = this.firstEntry;
+            if (operation === '+') return this.add();
+            if (operation === '-') return this.subtract();
+            if (operation === '*') return this.multiply();
+            if (operation === '/') return this.divide();
+        } 
     }
 
     add() {
@@ -51,7 +64,7 @@ class Calculator {
     }
     
     divide() {
-        this.result = parseFloat(this.firstEntry) /= parseFloat(this.secondEntry);
+        this.result = parseFloat(this.firstEntry) / parseFloat(this.secondEntry);
         this.display = this.result;
     }
     
