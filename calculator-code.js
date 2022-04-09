@@ -11,6 +11,16 @@ class Calculator {
         this.operation = undefined;
     }
 
+    delete() {
+        this.currentEntry = this.display;
+        this.arrayEntry = this.currentEntry.split('');
+        // remove last index of array by defining a new spliced array
+        this.spliceEntry = this.arrayEntry.pop();
+        // this.display = spliced array
+        this.display = this.arrayEntry.join("");
+        console.log(this.arrayEntry);
+    }
+
     // Adds numbers to the display one by one
     appendNumber(number) {
         // "add" the two elements together so that the numbers can aggregate on screen instead of actually summed up
@@ -54,18 +64,7 @@ class Calculator {
         if (operation === '-') return this.subtract();
         if (operation === '*') return this.multiply();
         if (operation === '/') return this.divide();
-        
-        // this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
-        // this.display = this.result;
     }
-
-    // function operate(operator, a, b) {
-    //     if (operator == '+') return add(a,b)
-    //     if (operator == '-') return subtract(a,b)
-    //     if (operator == '*') return multiply(a,b)
-    //     if (operator == '/') return divide(a,b)
-    //     if (operator == 'square') return power(a,b)
-    // }
 
     //Updates display with innerText of button clicked on screen
     updateDisplay() {
@@ -82,32 +81,6 @@ const clearSelect_button = document.querySelector('[data-clear]')
 const deleteSelect_button = document.querySelector('[data-delete]')
 const equalSelect_button = document.querySelector('[data-equals]')
 const display_div = document.querySelector('[data-display]')
-
-//Step 1 - Basic Operations
-// function add(intOne, intTwo) {
-// 	let sum = intOne + intTwo;
-//     return sum;
-// };
-
-// function subtract(intOne, intTwo) {
-// 	let difference = intOne - intTwo;
-//     return difference;
-// };
-
-// function multiply(intOne, intTwo) {
-//     let product = intOne * intTwo;
-//     return product;
-// }
-
-// function divide(dividend, divisor) {
-//     let quotient = dividend /= divisor;
-//     return quotient;
-// }
-
-// function power(number) {
-//     let product = number * number;
-//     return product;
-// }
 
 // Step 3 - Input
 // Define display_div as an empty array
@@ -152,8 +125,12 @@ equalSelect_button.addEventListener('click', () => {
     calculator.updateDisplay();
 })
 
-// Calculation Object
-// let calcEntry = {};
-// calcEntry.a = calcDisplay;
-// calcEntry.b -> needs a new variable after operator is input
-// calcEntry.operator 
+clearSelect_button.addEventListener('click', () => {
+    calculator.clear();
+    calculator.updateDisplay();
+})
+
+deleteSelect_button.addEventListener('click', () => {
+    calculator.delete();
+    calculator.updateDisplay();
+})
