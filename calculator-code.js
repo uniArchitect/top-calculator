@@ -20,15 +20,52 @@ class Calculator {
 
     chooseOperation(operation) {
         this.operation = operation;
+        // Saves entry of this.display into this.firstEntry to be used later
         this.firstEntry = this.display;
         this.display = "";
     }
 
-    operate() {
-        this.secondEntry = this.display;
+    add() {
         this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
         this.display = this.result;
+    };
+    
+    subtract(intOne, intTwo) {
+        let difference = intOne - intTwo;
+        return difference;
+    };
+    
+    multiply(intOne, intTwo) {
+        let product = intOne * intTwo;
+        return product;
     }
+    
+    divide(dividend, divisor) {
+        let quotient = dividend /= divisor;
+        return quotient;
+    }
+    
+    operate(operation, firstEntry, secondEntry) {
+        firstEntry = this.firstEntry;
+        this.secondEntry = this.display;
+        secondEntry = this.firstEntry;
+        operation = this.operation;
+        if (operation === '+') return this.add();
+        if (operation == '-') return subtract(firstEntry, secondEntry);
+        if (operation == '*') return multiply(firstEntry, secondEntry);
+        if (operation == '/') return divide(firstEntry, secondEntry);
+        
+        // this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
+        // this.display = this.result;
+    }
+
+    // function operate(operator, a, b) {
+    //     if (operator == '+') return add(a,b)
+    //     if (operator == '-') return subtract(a,b)
+    //     if (operator == '*') return multiply(a,b)
+    //     if (operator == '/') return divide(a,b)
+    //     if (operator == 'square') return power(a,b)
+    // }
 
     //Updates display with innerText of button clicked on screen
     updateDisplay() {
@@ -47,38 +84,29 @@ const equalSelect_button = document.querySelector('[data-equals]')
 const display_div = document.querySelector('[data-display]')
 
 //Step 1 - Basic Operations
-function add(intOne, intTwo) {
-	let sum = intOne + intTwo;
-    return sum;
-};
+// function add(intOne, intTwo) {
+// 	let sum = intOne + intTwo;
+//     return sum;
+// };
 
-function subtract(intOne, intTwo) {
-	let difference = intOne - intTwo;
-    return difference;
-};
+// function subtract(intOne, intTwo) {
+// 	let difference = intOne - intTwo;
+//     return difference;
+// };
 
-function multiply(intOne, intTwo) {
-    let product = intOne * intTwo;
-    return product;
-}
+// function multiply(intOne, intTwo) {
+//     let product = intOne * intTwo;
+//     return product;
+// }
 
-function divide(dividend, divisor) {
-    let quotient = dividend /= divisor;
-    return quotient;
-}
+// function divide(dividend, divisor) {
+//     let quotient = dividend /= divisor;
+//     return quotient;
+// }
 
 // function power(number) {
 //     let product = number * number;
 //     return product;
-// }
-
-//Step 2 - Operate
-// function operate(operator, a, b) {
-//     if (operator == '+') return add(a,b)
-//     if (operator == '-') return subtract(a,b)
-//     if (operator == '*') return multiply(a,b)
-//     if (operator == '/') return divide(a,b)
-//     if (operator == 'square') return power(a,b)
 // }
 
 // Step 3 - Input
