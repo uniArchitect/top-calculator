@@ -30,19 +30,19 @@ class Calculator {
         this.display = this.result;
     };
     
-    subtract(intOne, intTwo) {
-        let difference = intOne - intTwo;
-        return difference;
+    subtract() {
+        this.result = parseFloat(this.firstEntry) - parseFloat(this.secondEntry);
+        this.display = this.result;
     };
     
-    multiply(intOne, intTwo) {
-        let product = intOne * intTwo;
-        return product;
+    multiply() {
+        this.result = parseFloat(this.firstEntry) * parseFloat(this.secondEntry);
+        this.display = this.result;
     }
     
-    divide(dividend, divisor) {
-        let quotient = dividend /= divisor;
-        return quotient;
+    divide() {
+        this.result = parseFloat(this.firstEntry) /= parseFloat(this.secondEntry);
+        this.display = this.result;
     }
     
     operate(operation, firstEntry, secondEntry) {
@@ -51,9 +51,9 @@ class Calculator {
         secondEntry = this.firstEntry;
         operation = this.operation;
         if (operation === '+') return this.add();
-        if (operation == '-') return subtract(firstEntry, secondEntry);
-        if (operation == '*') return multiply(firstEntry, secondEntry);
-        if (operation == '/') return divide(firstEntry, secondEntry);
+        if (operation === '-') return this.subtract();
+        if (operation === '*') return this.multiply();
+        if (operation === '/') return this.divide();
         
         // this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
         // this.display = this.result;
