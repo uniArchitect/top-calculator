@@ -36,15 +36,11 @@ class Calculator {
             this.operation = operation;
             this.firstEntry = this.display;
             this.display = "";
-        } else if (typeof(this.firstEntry) == "string") {
-            // if (operation === '+') {
-            //     this.add();
-            //     this.display = "";
-            // }
-            // if (operation === '-') return this.subtract();
-            // if (operation === '*') return this.multiply();
-            // if (operation === '/') return this.divide();
-            // this.operation = operation;
+        } else if (typeof(this.firstEntry) == "string" || typeof(this.firstEntry) == "number") {
+            this.operate();
+            this.operation = operation;
+            this.firstEntry = this.result;
+            this.display = "";
             // this.secondEntry = this.display;
         } 
     }
