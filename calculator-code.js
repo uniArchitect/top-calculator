@@ -40,8 +40,7 @@ class Calculator {
             this.operate();
             this.operation = operation;
             this.firstEntry = this.result;
-            this.display = "";
-            // this.secondEntry = this.display;
+            // this.display = "";
         } 
     }
 
