@@ -10,6 +10,7 @@ class Calculator {
         this.display = "";
         this.firstEntry = "";
         this.secondEntry = "";
+        this.result = "";
         this.operation = undefined;
     }
 
@@ -27,7 +28,12 @@ class Calculator {
     appendNumber(number) {
         // "add" the two elements together so that the numbers can aggregate on screen instead of actually summed up
         if (number === '.' && this.display.includes('.')) return
-        this.display = this.display.toString() + number.toString();
+        if (typeof(this.result) == "number") {
+            this.display = "";
+            this.display = this.display.toString() + number.toString();
+        } else {
+            this.display = this.display.toString() + number.toString();
+        }
     }
 
     chooseOperation(operation) {
@@ -47,21 +53,25 @@ class Calculator {
     add() {
         this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
         this.display = this.result;
+        this.operation = "";
     };
     
     subtract() {
         this.result = parseFloat(this.firstEntry) - parseFloat(this.secondEntry);
         this.display = this.result;
+        this.operation = "";
     };
     
     multiply() {
         this.result = parseFloat(this.firstEntry) * parseFloat(this.secondEntry);
         this.display = this.result;
+        this.operation = "";
     }
     
     divide() {
         this.result = parseFloat(this.firstEntry) / parseFloat(this.secondEntry);
         this.display = this.result;
+        this.operation = "";
     }
     
     operate() {
