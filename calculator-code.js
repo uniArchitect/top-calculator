@@ -53,28 +53,29 @@ class Calculator {
     add() {
         this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
         this.display = this.result;
-        this.operation = "";
+        this.secondEntry = "";
     };
     
     subtract() {
         this.result = parseFloat(this.firstEntry) - parseFloat(this.secondEntry);
         this.display = this.result;
-        this.operation = "";
+        this.secondEntry = "";
     };
     
     multiply() {
         this.result = parseFloat(this.firstEntry) * parseFloat(this.secondEntry);
         this.display = this.result;
-        this.operation = "";
+        this.secondEntry = "";
     }
     
     divide() {
         this.result = parseFloat(this.firstEntry) / parseFloat(this.secondEntry);
         this.display = this.result;
-        this.operation = "";
+        this.secondEntry = "";
     }
     
     operate() {
+        // Create a second object property for secondEntry that will store the value "secretly" to avoid operators being constantly run with consecutive clicks
         this.secondEntry = this.display;
         if (this.operation === '+') return this.add();
         if (this.operation === '-') return this.subtract();
