@@ -26,35 +26,14 @@
 .output {
     display: flex;
     justify-content: center;
+    text-align: right;
+    height: 20px;
+    font-size: 20px;
 }
 
-.first-row {
+.first-row, .second-row, .third-row, .bottom-row, .bottom-left, .bottom-right {
     display: flex;
     justify-content: center;
-}
-
-.second-row {
-    display: flex;
-    justify-content: center;
-}
-
-.third-row {
-    display: flex;
-    justify-content: center;
-}
-
-.bottom-row {
-    display: flex;
-    justify-content: center;
-}
-
-.bottom-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.bottom-right {
-    display: flex;
-    justify-content: center;
+    flex: none;
+    width: 300px;
 }
