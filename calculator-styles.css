@@ -25,18 +25,48 @@
 
 .output {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: right;
     height: 20px;
     font-size: 20px;
 }
 
+.calc-history {
+    height: 20px;
+    margin: 10px 20px;
+    padding-top: 20px;
+    font-size: 15px;
+    color:gray;
+}
+
+.calc-display {
+    height: 120px;
+    margin: 10px 20px;
+}
+
 .keyboard {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 400px;
-    width: 300px;
+    width: 400px;
+}
+
+.bottom-left {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: auto;
+}
+
+.bottom-right {
+    display: flex;
+}
+
+.operator, .number {
+    width: auto;
+    height: 50px;
+    margin: 15px;
+    float: left;
 }
 
 /* .first-row, .second-row, .third-row, .bottom-row, .bottom-left, .bottom-right {
