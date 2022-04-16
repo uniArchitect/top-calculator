@@ -51,22 +51,28 @@
     width: 400px;
 }
 
+.bottom-row {
+    display: flex;
+    flex-direction: row;
+}
+
 .bottom-left {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 300px;
     height: auto;
 }
 
 .bottom-right {
     display: flex;
+    height: auto;
 }
 
 .operator, .number {
-    width: auto;
-    height: 50px;
-    margin: 15px;
-    float: left;
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    border-radius: 75px;
 }
 
 /* .first-row, .second-row, .third-row, .bottom-row, .bottom-left, .bottom-right {
