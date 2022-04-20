@@ -9,7 +9,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
     width: 450px;
     position: relative;
     top: 50px;
@@ -48,6 +48,8 @@
 .keyboard {
     display: flex;
     flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
     width: 400px;
 }
 
@@ -59,20 +61,27 @@
 .bottom-left {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: auto;
+    align-items: center;
 }
 
 .bottom-right {
     display: flex;
-    height: auto;
+}
+
+#zero {
+    width: 170px; 
+}
+
+#equal {
+    height: 170px;
 }
 
 .operator, .number {
-    width: 75px;
-    height: 75px;
+    font-size: 15px;
+    width: 80px;
+    height: 80px;
     margin: 5px;
-    border-radius: 75px;
+    border-radius: 80px;
 }
 
 /* .first-row, .second-row, .third-row, .bottom-row, .bottom-left, .bottom-right {
