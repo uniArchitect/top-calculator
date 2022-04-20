@@ -42,6 +42,7 @@
 .calc-display {
     height: auto;
     font-size: 60px;
+    height: 69px;
     margin: 10px 20px;
     color:#4056a1;
 }
@@ -72,23 +73,26 @@
 
 #zero {
     width: 170px;
-    background-color: #4056a1; 
+    background-color: #4056a1;
+    color: #efe2ba; 
 }
 
 #equal {
     height: 170px;
     background-color: #f13c20;
+    color: #efe2ba;
 }
 
 .operator, .number {
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 24px;
     width: 80px;
     height: 80px;
     margin: 5px;
     border-radius: 80px;
     border: none;
     background: #c5cbe3;
+    color: #4056a1;
     /* box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); */
 }
 
