@@ -69,6 +69,8 @@ class Calculator {
     }
     
     divide() {
+        // Prevents dividing by zero
+        if (this.secondEntry === '0') return; 
         this.result = parseFloat(this.firstEntry) / parseFloat(this.secondEntry);
         this.display = this.result;
         this.secondEntry = "";
