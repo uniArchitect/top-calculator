@@ -46,30 +46,33 @@ class Calculator {
         if (this.firstEntry == "") {
             this.operation = operation;
             this.firstEntry = this.display;
+            this.history = this.display + " " + this.operation;
             this.display = "";
         } else if (typeof(this.firstEntry) == "string" || typeof(this.firstEntry) == "number") {
             this.operate();
             this.operation = operation;
             this.firstEntry = this.result;
-            // this.display = "";
         } 
     }
 
     add() {
         this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
         this.display = this.result;
+        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
         this.secondEntry = "";
     };
     
     subtract() {
         this.result = parseFloat(this.firstEntry) - parseFloat(this.secondEntry);
         this.display = this.result;
+        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
         this.secondEntry = "";
     };
     
     multiply() {
         this.result = parseFloat(this.firstEntry) * parseFloat(this.secondEntry);
         this.display = this.result;
+        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
         this.secondEntry = "";
     }
     
@@ -78,11 +81,13 @@ class Calculator {
         if (this.secondEntry === '0') return; 
         this.result = parseFloat(this.firstEntry) / parseFloat(this.secondEntry);
         this.display = this.result;
+        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
         this.secondEntry = "";
     }
     
-    operate() {
+    operate(equal_operator) {
         // Create a second object property for secondEntry that will store the value "secretly" to avoid operators being constantly run with consecutive clicks
+        this.equalOp = equal_operator;
         this.secondEntry = this.display;
         if (this.operation === '+') return this.add();
         if (this.operation === '-') return this.subtract();
@@ -93,7 +98,7 @@ class Calculator {
     //Updates display with innerText of button clicked on screen
     updateDisplay() {
         this.display_div.innerText = this.display;
-        // this.history_div.innerText = this.display + this.history;
+        this.history_div.innerText = this.history;
     }
 }
 
@@ -147,7 +152,7 @@ opSelect_button.forEach(opSelect_button => {
 })
 
 equalSelect_button.addEventListener('click', () => {
-    calculator.operate();
+    calculator.operate(equalSelect_button.innerText);
     calculator.updateDisplay();
 })
 
