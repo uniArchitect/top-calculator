@@ -1,16 +1,18 @@
 class Calculator {
     // Class will create a "calculator" object that can hold multiple properties
-    constructor(display_div) {
+    constructor(display_div, history_div) {
         this.display_div = display_div;
+        this.history_div = history_div;
         this.clear();
     }
 
     // Clears the display
     clear() {
-        this.display = "";
+        this.display = "0";
         this.firstEntry = "";
         this.secondEntry = "";
         this.result = "";
+        this.history = "";
         this.operation = undefined;
     }
 
@@ -31,8 +33,11 @@ class Calculator {
         if (typeof(this.result) == "number") {
             this.display = "";
             this.display = this.display.toString() + number.toString();
-        } else {
+        } else if (this.display == "0") {
+            this.display = "";
             this.display = this.display.toString() + number.toString();
+        } else {
+            this.display = this.display.toString() + number.toString();  
         }
     }
 
@@ -88,6 +93,7 @@ class Calculator {
     //Updates display with innerText of button clicked on screen
     updateDisplay() {
         this.display_div.innerText = this.display;
+        // this.history_div.innerText = this.display + this.history;
     }
 }
 
@@ -123,7 +129,7 @@ const history_div = document.querySelector('[data-history]')
 //     // }
 // }
 
-const calculator = new Calculator(display_div)
+const calculator = new Calculator(display_div, history_div)
 
 // Displays a value for each element pressed on screen
 numSelect_button.forEach(numSelect_button => {
