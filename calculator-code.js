@@ -100,6 +100,7 @@ const clearSelect_button = document.querySelector('[data-clear]')
 const deleteSelect_button = document.querySelector('[data-delete]')
 const equalSelect_button = document.querySelector('[data-equals]')
 const display_div = document.querySelector('[data-display]')
+const history_div = document.querySelector('[data-history]')
 
 // Step 3 - Input
 // Define display_div as an empty array
