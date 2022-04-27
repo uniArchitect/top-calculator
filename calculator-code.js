@@ -32,6 +32,7 @@ class Calculator {
         if (number === '.' && this.display.includes('.')) return
         if (typeof(this.result) == "number") {
             this.display = "";
+            this.history = "";
             this.display = this.display.toString() + number.toString();
         } else if (this.display == "0") {
             this.display = "";
@@ -88,7 +89,7 @@ class Calculator {
     operate(equal_operator) {
         // Create a second object property for secondEntry that will store the value "secretly" to avoid operators being constantly run with consecutive clicks
         this.equalOp = equal_operator;
-        this.secondEntry = this.display;
+        this.secondEntry = this.display; // This is creating an error. When equal is clicked, the new result becomes "secondEntry"
         if (this.operation === '+') return this.add();
         if (this.operation === '-') return this.subtract();
         if (this.operation === '*') return this.multiply();
