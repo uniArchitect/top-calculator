@@ -36,6 +36,9 @@ class Calculator {
             // this.clear();
             // this.display = "";
             this.display = this.display.toString() + number.toString();
+        } else if (typeof(this.result) == "number" && this.equalOp == "undefined") {
+            this.display = ""; //220426 - Need to rewrite else if condition so that numbers can be appended to sequential operators without erasing everything
+            this.display = this.display.toString() + number.toString();  
         } else if (this.display == "0") {
             this.display = "";
             this.display = this.display.toString() + number.toString();
@@ -51,12 +54,16 @@ class Calculator {
             this.firstEntry = this.display;
             this.history = this.display + " " + this.operation;
             this.display = "";
-        } else if (typeof(this.firstEntry) == "string" || typeof(this.firstEntry) == "number") {
+        } else if (typeof(this.firstEntry) == "string" && typeof(this.secondEntry) == "" || typeof(this.firstEntry) == "number" && typeof(this.secondEntry) == "") {
             this.firstEntry = this.display;
             this.operation = operation;
             this.history = this.firstEntry + " " + this.operation;
             // this.firstEntry = this.result;
-        } 
+        } else if (typeof(this.display) == "number" || typeof(this.display) == "string" && typeof(this.firstEntry) == "number" || typeof(this.firstEntry) == "string") {
+            this.operate();
+            this.operation = operation;
+            this.history = this.result + " " + this.operation;
+        }
     }
 
     add() {
