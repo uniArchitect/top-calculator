@@ -33,6 +33,8 @@ class Calculator {
         if (typeof(this.result) == "number") {
             this.display = "";
             this.history = "";
+            // this.clear();
+            // this.display = "";
             this.display = this.display.toString() + number.toString();
         } else if (this.display == "0") {
             this.display = "";
@@ -50,9 +52,10 @@ class Calculator {
             this.history = this.display + " " + this.operation;
             this.display = "";
         } else if (typeof(this.firstEntry) == "string" || typeof(this.firstEntry) == "number") {
-            this.operate();
+            this.firstEntry = this.display;
             this.operation = operation;
-            this.firstEntry = this.result;
+            this.history = this.firstEntry + " " + this.operation;
+            // this.firstEntry = this.result;
         } 
     }
 
