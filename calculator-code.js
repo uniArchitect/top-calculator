@@ -8,7 +8,7 @@ class Calculator {
 
     // Clears the display
     clear() {
-        this.display = "0";
+        this.display = "";
         this.firstEntry = "";
         this.secondEntry = "";
         this.result = "";
@@ -30,20 +30,22 @@ class Calculator {
     appendNumber(number) {
         // "add" the two elements together so that the numbers can aggregate on screen instead of actually summed up
         if (number === '.' && this.display.includes('.')) return
+        this.display = this.display.toString() + number.toString();
         // Allows new operation to start when an equation is run
-        if (typeof(this.result) == "number" && this.equalOp === "string") {
-            this.display = "";
-            this.history = "";
-            this.display = this.display.toString() + number.toString();
-        } else if (typeof(this.result) == "number" && this.equalOp === undefined) {
-            this.display = ""; //220426 - Need to rewrite else if condition so that numbers can be appended to sequential operators without erasing everything
-            this.display = this.display.toString() + number.toString();  
-        } else if (this.display == "0") {
-            this.display = "";
-            this.display = this.display.toString() + number.toString();
-        } else {
-            this.display = this.display.toString() + number.toString();  
-        }
+        // if (typeof(this.result) == "number" && this.equalOp === "string") {
+        //     this.display = "";
+        //     this.history = "";
+        //     this.display = this.display.toString() + number.toString();
+        // } else if (typeof(this.result) == "number" && this.equalOp === undefined) {
+        //     this.display = ""; //220426 - Need to rewrite else if condition so that numbers can be appended to sequential operators without erasing everything
+        //     this.display = this.display.toString() + number.toString();  
+        // } else if (this.display == "0") {
+        //     this.display = "";
+        //     this.display = this.display.toString() + number.toString();
+        // } else {
+        //     this.display = this.display.toString() + number.toString();  
+        // }
+
     }
 
     chooseOperation(operation) {
@@ -58,42 +60,42 @@ class Calculator {
             this.operation = operation;
             this.history = this.firstEntry + " " + this.operation;
             this.firstEntry = this.result;
+            this.display = "";
         } else if (typeof(this.display) == "number" || typeof(this.display) == "string" && typeof(this.firstEntry) == "number" || typeof(this.firstEntry) == "string") {
             this.operate();
             this.firstEntry = this.result;
             this.operation = operation;
             this.history = this.result + " " + this.operation;
+            this.display = "";
         }
+    }
+
+    updateHistory() {
+        this.display = this.result;
+        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
+        this.secondEntry = "";  
     }
 
     add() {
         this.result = parseFloat(this.firstEntry) + parseFloat(this.secondEntry);
-        this.display = this.result;
-        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
-        this.secondEntry = "";
+        this.updateHistory();
     };
     
     subtract() {
         this.result = parseFloat(this.firstEntry) - parseFloat(this.secondEntry);
-        this.display = this.result;
-        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
-        this.secondEntry = "";
+        this.updateHistory();
     };
     
     multiply() {
         this.result = parseFloat(this.firstEntry) * parseFloat(this.secondEntry);
-        this.display = this.result;
-        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
-        this.secondEntry = "";
+        this.updateHistory();
     }
     
     divide() {
         // Prevents dividing by zero
         if (this.secondEntry === '0') return; 
         this.result = parseFloat(this.firstEntry) / parseFloat(this.secondEntry);
-        this.display = this.result;
-        this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
-        this.secondEntry = "";
+        this.updateHistory();
     }
     
     operate(equal_operator) {
