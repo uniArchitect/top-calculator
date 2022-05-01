@@ -30,13 +30,12 @@ class Calculator {
     appendNumber(number) {
         // "add" the two elements together so that the numbers can aggregate on screen instead of actually summed up
         if (number === '.' && this.display.includes('.')) return
-        if (typeof(this.result) == "number") {
+        // Allows new operation to start when an equation is run
+        if (typeof(this.result) == "number" && this.equalOp === "string") {
             this.display = "";
             this.history = "";
-            // this.clear();
-            // this.display = "";
             this.display = this.display.toString() + number.toString();
-        } else if (typeof(this.result) == "number" && this.equalOp == "undefined") {
+        } else if (typeof(this.result) == "number" && this.equalOp === undefined) {
             this.display = ""; //220426 - Need to rewrite else if condition so that numbers can be appended to sequential operators without erasing everything
             this.display = this.display.toString() + number.toString();  
         } else if (this.display == "0") {
@@ -50,17 +49,18 @@ class Calculator {
     chooseOperation(operation) {
         // Saves entry of this.display into this.firstEntry to be used later
         if (this.firstEntry == "") {
-            this.operation = operation;
             this.firstEntry = this.display;
+            this.operation = operation;
             this.history = this.display + " " + this.operation;
             this.display = "";
         } else if (typeof(this.firstEntry) == "string" && typeof(this.secondEntry) == "" || typeof(this.firstEntry) == "number" && typeof(this.secondEntry) == "") {
             this.firstEntry = this.display;
             this.operation = operation;
             this.history = this.firstEntry + " " + this.operation;
-            // this.firstEntry = this.result;
+            this.firstEntry = this.result;
         } else if (typeof(this.display) == "number" || typeof(this.display) == "string" && typeof(this.firstEntry) == "number" || typeof(this.firstEntry) == "string") {
             this.operate();
+            this.firstEntry = this.result;
             this.operation = operation;
             this.history = this.result + " " + this.operation;
         }
