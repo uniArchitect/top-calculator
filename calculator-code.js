@@ -56,6 +56,11 @@ class Calculator {
             this.operation = operation;
             this.history = this.display + " " + this.operation;
             this.display = "";
+        } else if (this.equalOp == "=") { //Allows to choose operation after clicking equal so that existing firstEntry is not used in operation
+            this.firstEntry = this.result;
+            this.operation = operation;
+            this.history = this.result + " " + this.operation;
+            this.display = "";
         } else if (typeof(this.firstEntry) == "string" && typeof(this.secondEntry) == "" || typeof(this.firstEntry) == "number" && typeof(this.secondEntry) == "") {
             this.firstEntry = this.display;
             this.operation = operation;
@@ -106,8 +111,8 @@ class Calculator {
         this.secondEntry = this.display; // This is creating an error. When equal is clicked, the new result becomes "secondEntry"
         if (this.operation === '+') return this.add();
         if (this.operation === '-') return this.subtract();
-        if (this.operation === '*') return this.multiply();
-        if (this.operation === '/') return this.divide();
+        if (this.operation === 'x') return this.multiply();
+        if (this.operation === '÷') return this.divide();
     }
 
     //Updates display with innerText of button clicked on screen
