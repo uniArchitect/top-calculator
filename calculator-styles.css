@@ -109,6 +109,7 @@
     background-color: #4056a1;
     color: #efe2ba;
     transition-duration: .25s;
+    transform: translateY(-2px);
 }
 
 .operator:active, .number:active {
