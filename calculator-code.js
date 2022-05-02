@@ -50,6 +50,7 @@ class Calculator {
 
     chooseOperation(operation) {
         // Saves entry of this.display into this.firstEntry to be used later
+        if (this.display === "") return //Write the if statement so that the operator can change even if display is ""
         if (this.firstEntry == "") {
             this.firstEntry = this.display;
             this.operation = operation;

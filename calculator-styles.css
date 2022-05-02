@@ -96,6 +96,12 @@
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
+.operator:hover, .number:hover {
+    background-color: #4056a1;
+    color: white;
+    transition-duration: .25s;
+}
+
 .operator:active, .number:active {
     /* background-color: #4056a1; */
     color: #4056a1;
