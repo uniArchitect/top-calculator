@@ -101,7 +101,8 @@ class Calculator {
     
     operate(equal_operator) {
         // Create a second object property for secondEntry that will store the value "secretly" to avoid operators being constantly run with consecutive clicks
-        this.equalOp = equal_operator;
+        if (this.display == "") return
+        this.equalOp = equal_operator;             
         this.secondEntry = this.display; // This is creating an error. When equal is clicked, the new result becomes "secondEntry"
         if (this.operation === '+') return this.add();
         if (this.operation === '-') return this.subtract();

@@ -98,7 +98,7 @@
 
 .operator:hover, .number:hover {
     background-color: #4056a1;
-    color: white;
+    color: #efe2ba;
     transition-duration: .25s;
 }
 
