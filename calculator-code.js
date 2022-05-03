@@ -31,7 +31,7 @@ class Calculator {
     appendNumber(number) {
         // "add" the two elements together so that the numbers can aggregate on screen instead of actually summed up
         if (number === '.' && this.display.includes('.')) return
-        if (this.display.length == "11") return //Stops numbers from going offscreen
+        if (this.display.length == "9") return //Stops numbers from going offscreen
         this.display = this.display.toString() + number.toString();
         // Allows new operation to start when an equation is run
         // if (typeof(this.result) == "number" && this.equalOp === "string") {
