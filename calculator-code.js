@@ -9,6 +9,7 @@ class Calculator {
     // Clears the display
     clear() {
         this.display = "";
+        this.equalOp = "";
         this.firstEntry = "";
         this.secondEntry = "";
         this.result = "";
