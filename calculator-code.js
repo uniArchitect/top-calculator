@@ -50,19 +50,20 @@ class Calculator {
 
     }
 
+    enterHistory() {
+        this.firstEntry = this.display;
+        this.operation = operation;
+        this.history = this.display + " " + this.operation;
+        this.display = "";    
+    }
+
     chooseOperation(operation) {
         // Saves entry of this.display into this.firstEntry to be used later
         // if (this.display === "") return //Write the if statement so that the operator can change even if display is ""
         if (this.firstEntry == "") {
-            this.firstEntry = this.display;
-            this.operation = operation;
-            this.history = this.display + " " + this.operation;
-            this.display = "";
+            enterHistory();
         } else if (this.equalOp == "=") { //Allows to choose operation after clicking equal so that existing firstEntry is not used in operation
-            this.firstEntry = this.result;
-            this.operation = operation;
-            this.history = this.result + " " + this.operation;
-            this.display = "";
+            enterHistory();
         } else if (typeof(this.firstEntry) == "string" && typeof(this.secondEntry) == "" || typeof(this.firstEntry) == "number" && typeof(this.secondEntry) == "") {
             this.firstEntry = this.display;
             this.operation = operation;
@@ -71,10 +72,7 @@ class Calculator {
             this.display = "";
         } else if (typeof(this.display) == "number" || typeof(this.display) == "string" && typeof(this.firstEntry) == "number" || typeof(this.firstEntry) == "string") {
             this.operate();
-            this.firstEntry = this.result;
-            this.operation = operation;
-            this.history = this.result + " " + this.operation;
-            this.display = "";
+            enterHistory();
         }
     }
 
@@ -109,12 +107,21 @@ class Calculator {
     operate(equal_operator) {
         // Create a second object property for secondEntry that will store the value "secretly" to avoid operators being constantly run with consecutive clicks
         if (this.display == "") return
-        this.equalOp = equal_operator;             
-        this.secondEntry = this.display; // This is creating an error. When equal is clicked, the new result becomes "secondEntry"
-        if (this.operation === '+') return this.add();
-        if (this.operation === '-') return this.subtract();
-        if (this.operation === 'x') return this.multiply();
-        if (this.operation === '÷') return this.divide();
+        if (this.secondEntry == "" && this.equalOp == "") {
+            this.equalOp = equal_operator;             
+            this.secondEntry = this.display; // This is creating an error. When equal is clicked, the new result becomes "secondEntry"
+            if (this.operation === '+') return this.add();
+            if (this.operation === '-') return this.subtract();
+            if (this.operation === 'x') return this.multiply();
+            if (this.operation === '÷') return this.divide();  
+        } else {
+            this.equalOp = equal_operator;
+            this.firstEntry = this.display;            
+            if (this.operation === '+') return this.add();
+            if (this.operation === '-') return this.subtract();
+            if (this.operation === 'x') return this.multiply();
+            if (this.operation === '÷') return this.divide(); 
+        }
     }
 
     //Updates display with innerText of button clicked on screen
