@@ -12,7 +12,7 @@ class Calculator {
         this.equalOp = "";
         this.firstEntry = "";
         this.secondEntry = "";
-        this.hiddenEntry = "";
+        // this.hiddenEntry = "";
         this.result = "";
         this.history = "";
         this.operation = undefined;
@@ -109,21 +109,13 @@ class Calculator {
     operate(equal_operator) {
         // Create a second object property for secondEntry that will store the value "secretly" to avoid operators being constantly run with consecutive clicks
         if (this.display == "") return
-        if (this.secondEntry == "" && this.equalOp == "") {
+        if (this.secondEntry == "") {
             this.equalOp = equal_operator;             
             this.secondEntry = this.display; // This is creating an error. When equal is clicked, the new result becomes "secondEntry"
             if (this.operation === '+') return this.add();
             if (this.operation === '-') return this.subtract();
             if (this.operation === 'x') return this.multiply();
             if (this.operation === '÷') return this.divide();  
-        } else {
-            this.equalOp = equal_operator;
-            this.firstEntry = this.display;
-            this.secondEntry = this.hiddenEntry; // historyEntry to be a stored secondEntry            
-            if (this.operation === '+') return this.add();
-            if (this.operation === '-') return this.subtract();
-            if (this.operation === 'x') return this.multiply();
-            if (this.operation === '÷') return this.divide(); 
         }
     }
 
