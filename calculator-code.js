@@ -12,6 +12,7 @@ class Calculator {
         this.equalOp = "";
         this.firstEntry = "";
         this.secondEntry = "";
+        this.hiddenEntry = "";
         this.result = "";
         this.history = "";
         this.operation = undefined;
@@ -50,7 +51,7 @@ class Calculator {
 
     }
 
-    enterHistory() {
+    enterHistory(operation) {
         this.firstEntry = this.display;
         this.operation = operation;
         this.history = this.display + " " + this.operation;
@@ -61,9 +62,9 @@ class Calculator {
         // Saves entry of this.display into this.firstEntry to be used later
         // if (this.display === "") return //Write the if statement so that the operator can change even if display is ""
         if (this.firstEntry == "") {
-            enterHistory();
+            this.enterHistory(operation);
         } else if (this.equalOp == "=") { //Allows to choose operation after clicking equal so that existing firstEntry is not used in operation
-            enterHistory();
+            this.enterHistory(operation);
         } else if (typeof(this.firstEntry) == "string" && typeof(this.secondEntry) == "" || typeof(this.firstEntry) == "number" && typeof(this.secondEntry) == "") {
             this.firstEntry = this.display;
             this.operation = operation;
@@ -72,13 +73,14 @@ class Calculator {
             this.display = "";
         } else if (typeof(this.display) == "number" || typeof(this.display) == "string" && typeof(this.firstEntry) == "number" || typeof(this.firstEntry) == "string") {
             this.operate();
-            enterHistory();
+            this.enterHistory(operation);
         }
     }
 
     updateHistory() {
         this.display = this.result;
         this.history = this.firstEntry + " " + this.operation + " " + this.secondEntry + " " + this.equalOp;
+        this.hiddenEntry = this.secondEntry;
         this.secondEntry = "";  
     }
 
@@ -116,7 +118,8 @@ class Calculator {
             if (this.operation === '÷') return this.divide();  
         } else {
             this.equalOp = equal_operator;
-            this.firstEntry = this.display;            
+            this.firstEntry = this.display;
+            this.secondEntry = this.hiddenEntry; // historyEntry to be a stored secondEntry            
             if (this.operation === '+') return this.add();
             if (this.operation === '-') return this.subtract();
             if (this.operation === 'x') return this.multiply();
