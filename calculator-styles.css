@@ -40,14 +40,14 @@
     border-color: #c5cbe3;
     border-width: 1px;
     border-radius: 18px;
-    box-shadow: inset 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 4px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .calc-history {
     height: 20px;
     margin: 10px 20px;
     font-size: 24px;
-    color:#c5cbe3;
+    color:white;
 }
 
 .calc-display {
@@ -55,7 +55,7 @@
     font-size: 60px;
     height: 69px;
     margin: 10px 20px;
-    color:#c5cbe3;
+    color:white;
 }
 
 .keyboard {
