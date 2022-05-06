@@ -1,8 +1,8 @@
 class Calculator {
     // Class will create a "calculator" object that can hold multiple properties
-    constructor(display_div, history_div) {
-        this.display_div = display_div;
-        this.history_div = history_div;
+    constructor(DISPLAY_DIV, HISTORY_DIV) {
+        this.DISPLAY_DIV = DISPLAY_DIV;
+        this.HISTORY_DIV = HISTORY_DIV;
         this.clear();
     }
 
@@ -12,7 +12,6 @@ class Calculator {
         this.equalOp = "";
         this.firstEntry = "";
         this.secondEntry = "";
-        // this.hiddenEntry = "";
         this.result = "";
         this.history = "";
         this.operation = undefined;
@@ -34,21 +33,6 @@ class Calculator {
         if (number === '.' && this.display.includes('.')) return
         if (this.display.length == "9") return //Stops numbers from going offscreen
         this.display = this.display.toString() + number.toString();
-        // Allows new operation to start when an equation is run
-        // if (typeof(this.result) == "number" && this.equalOp === "string") {
-        //     this.display = "";
-        //     this.history = "";
-        //     this.display = this.display.toString() + number.toString();
-        // } else if (typeof(this.result) == "number" && this.equalOp === undefined) {
-        //     this.display = ""; //220426 - Need to rewrite else if condition so that numbers can be appended to sequential operators without erasing everything
-        //     this.display = this.display.toString() + number.toString();  
-        // } else if (this.display == "0") {
-        //     this.display = "";
-        //     this.display = this.display.toString() + number.toString();
-        // } else {
-        //     this.display = this.display.toString() + number.toString();  
-        // }
-
     }
 
     enterHistory(operation) {
@@ -121,71 +105,47 @@ class Calculator {
 
     //Updates display with innerText of button clicked on screen
     updateDisplay() {
-        this.display_div.innerText = this.display;
-        this.history_div.innerText = this.history;
+        this.DISPLAY_DIV.innerText = this.display;
+        this.HISTORY_DIV.innerText = this.history;
     }
 }
 
-// const numbers = [...Array(10).keys()];
-//Array() - Creates an array to the 'argument' length, in this case '10'
-//.keys() - Returns an array of an object in the same order a normal loop would 
-const numSelect_button = document.querySelectorAll('[data-number]')
-const opSelect_button = document.querySelectorAll('[data-operate]')
-const clearSelect_button = document.querySelector('[data-clear]')
-const deleteSelect_button = document.querySelector('[data-delete]')
-const equalSelect_button = document.querySelector('[data-equals]')
-const display_div = document.querySelector('[data-display]')
-const history_div = document.querySelector('[data-history]')
+const NUMSELECT_BUTTON = document.querySelectorAll('[data-number]')
+const OPSELECT_BUTTON = document.querySelectorAll('[data-operate]')
+const CLEARSELECT_BUTTON = document.querySelector('[data-clear]')
+const DELETESELECT_BUTTON = document.querySelector('[data-delete]')
+const EQUALSELECT_BUTTON = document.querySelector('[data-equals]')
+const DISPLAY_DIV = document.querySelector('[data-display]')
+const HISTORY_DIV = document.querySelector('[data-history]')
 
-// Step 3 - Input
-// Define display_div as an empty array
-// let calcDisplay = [];
-// Adds calcInput into empty array
-// function entryDisplay(calcInput) {    
-//     // while (calcEntry.operator == "undefined" && Number.isInteger(calcInput) == "true") {    
-//     if (calcInput >= 0 || calcInput <= 10 || calcInput == '.') {
-//         calcDisplay.push(calcInput); //Defines display as an expanding array
-//         let joinDisplay = calcDisplay.join("");
-//         console.log(joinDisplay); //Purpose is to display in console
-//         return joinDisplay;
-//     } else if (calcInput == '+' || calcInput == "/" || calcInput == "-" || calcInput == "*" || calcInput == "square") {
-//         calcEntry.operator = calcInput;
-//         return "";
-//     } else if (calcInput == "=") {
-//         // operate();
-//         return "Final Calculation";
-//     }
-//     // }
-// }
-
-const calculator = new Calculator(display_div, history_div)
+const calculator = new Calculator(DISPLAY_DIV, HISTORY_DIV)
 
 // Displays a value for each element pressed on screen
-numSelect_button.forEach(numSelect_button => {
-    numSelect_button.addEventListener('click', () => {
-        calculator.appendNumber(numSelect_button.innerText);
+NUMSELECT_BUTTON.forEach(NUMSELECT_BUTTON => {
+    NUMSELECT_BUTTON.addEventListener('click', () => {
+        calculator.appendNumber(NUMSELECT_BUTTON.innerText);
         calculator.updateDisplay();
     })
 })
 
-opSelect_button.forEach(opSelect_button => {
-    opSelect_button.addEventListener('click', () => {
-        calculator.chooseOperation(opSelect_button.innerText);
+OPSELECT_BUTTON.forEach(OPSELECT_BUTTON => {
+    OPSELECT_BUTTON.addEventListener('click', () => {
+        calculator.chooseOperation(OPSELECT_BUTTON.innerText);
         calculator.updateDisplay();
     })
 })
 
-equalSelect_button.addEventListener('click', () => {
-    calculator.operate(equalSelect_button.innerText);
+EQUALSELECT_BUTTON.addEventListener('click', () => {
+    calculator.operate(EQUALSELECT_BUTTON.innerText);
     calculator.updateDisplay();
 })
 
-clearSelect_button.addEventListener('click', () => {
+CLEARSELECT_BUTTON.addEventListener('click', () => {
     calculator.clear();
     calculator.updateDisplay();
 })
 
-deleteSelect_button.addEventListener('click', () => {
+DELETESELECT_BUTTON.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 })
